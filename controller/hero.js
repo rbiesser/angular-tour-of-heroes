@@ -41,7 +41,7 @@ exports.read = function (req, res, next) {
     })
 }
 
-exports.heroes = (req, res) => {
+exports.heroes = function (req, res, next) {
     console.log("In heros in controller")
     Hero.find({}, (err, docs) => {
         if (err) {
