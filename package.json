@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "start": "ng serve",
+    "start": "ng build && node server.js",
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e"
@@ -25,6 +25,9 @@
     "@angular/router": "~9.1.4",
     "@angular/upgrade": "~9.1.4",
     "angular-in-memory-web-api": "~0.11.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23",
     "rxjs": "~6.5.4",
     "zone.js": "~0.10.3"
   },

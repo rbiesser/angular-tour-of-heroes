@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+    # compiling and running angular is a little more tricky
+    # most of the resources I see say to make it a 2 step build where just the dist folder is copied to the final image
+#   app:
+#     build: .
+#     container_name: express
+#     user: "node"
+#     working_dir: /home/node/app
+#     environment:
+#         - NODE_ENV=development
+#     volumes:
+#         - ./:/home/node/app
+#         - /home/node/app/node_modules
+#     ports:
+#       - "80:4200"
+#     command: "npm start"
+#     depends_on: 
+#       - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+
+    # just running mongo on localhost for now
+    ports:
+        - "27017:27017"
