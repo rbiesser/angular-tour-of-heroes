@@ -7,8 +7,10 @@ exports.test = function (req, res) {
 }
 
 exports.create = function (req, res, next) {
-    console.log('In heros create in controller')
+    console.log('create in controller')
+    console.log('body:')
     console.log(req.body)
+    console.log('params:')
     console.log(req.params)
 
     var hero = new Hero(
@@ -33,7 +35,7 @@ exports.create = function (req, res, next) {
 }
 
 exports.read = function (req, res, next) {
-    console.log("read in controller: " + req.params.id)
+    console.log("read in controller. id: " + req.params.id)
     Hero.findOne({ id: req.params.id }, (err, hero) => {
         if (err)
             return next(err)
@@ -42,18 +44,20 @@ exports.read = function (req, res, next) {
 }
 
 exports.heroes = function (req, res, next) {
-    console.log("In heros in controller")
+    console.log("heroes in controller")
     Hero.find({}, (err, docs) => {
         if (err) {
             return console.error(err)
         }
-        console.log("In heros in controller" + docs[0])
+        console.log("heroes in controller: " + docs[0])
+        console.log('count: ' + docs.length)
+        // console.log(docs)
         res.json(docs)
     })
 }
 
 exports.update = function (req, res, next) {
-    console.log("In update in controller " + req.body.id)
+    console.log("update in controller. id: " + req.body.id)
     Hero.findOneAndUpdate({ id: req.body.id }, { $set: req.body }, (err, hero) => {
         if (err) return next(err)
         res.json("hero updated.")
@@ -61,7 +65,7 @@ exports.update = function (req, res, next) {
 }
 
 exports.delete = function (req, res, next) {
-    console.log("Id provided: " + req.params.id)
+    console.log("delete in controller. id: " + req.params.id)
     // Delete by id not _id
     Hero.deleteOne({ id: req.params.id }, (err) => {
         if (err) return next(err)

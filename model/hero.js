@@ -9,4 +9,4 @@ const HeroSchema = new Schema(
     }
 )
 
-module.exports = mongoose.model('heros', HeroSchema, 'heros')
+module.exports = mongoose.model('heroes', HeroSchema, 'heroes')
